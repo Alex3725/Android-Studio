@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                             Color.WHITE
                     );
                     text1.setText(getString((isLogged[0] ? R.string.succesfull_login : R.string.error_login)));
-                    Toast.makeText(v.getContext(), "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), ("Login: "+(isLogged[0]? "OK" : "Bad")), Toast.LENGTH_SHORT).show();
             }
         });
 
