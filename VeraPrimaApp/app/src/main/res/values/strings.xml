@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Vera Prima App</string>
+    <string name="user_login">Username</string>
+    <string name="pswd_login">Password</string>
+    <string name="btn_login">login</string>
+    <string name="error_login">Non Loggato: passw o gmail errata</string>
+    <string name="succesfull_login">Loggato !!! </string>
 </resources>
