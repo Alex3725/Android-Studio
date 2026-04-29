@@ -4,63 +4,95 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
 
-    <!-- EMAIL -->
-    <EditText
-        android:id="@+id/editTextEmail"
+    <LinearLayout
+        android:id="@+id/container"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:minHeight="48dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="32dp"
         android:gravity="center_vertical"
-        android:hint="@string/user_login"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="32dp"
-        android:layout_marginHorizontal="24dp"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- PASSWORD -->
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:minHeight="48dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:gravity="center_vertical"
-        android:hint="@string/pswd_login"
-        android:inputType="textPassword"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@id/editTextEmail"
-        app:layout_constraintStart_toStartOf="@id/editTextEmail"
-        app:layout_constraintEnd_toEndOf="@id/editTextEmail"/>
+        <TextView
+            android:text="@string/login_title"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="40dp"
+            android:layout_height="60dp"
+            android:layout_width="match_parent"/>
 
-    <!-- BUTTON -->
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="72dp"
-        android:text="@string/btn_login"
-        app:layout_constraintTop_toBottomOf="@id/editTextPassword"
-        app:layout_constraintStart_toStartOf="@id/editTextEmail"
-        app:layout_constraintEnd_toEndOf="@id/editTextEmail"/>
 
-    <!-- TEXT -->
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:background="@drawable/rounded"
-        android:text="Hello World!"
-        app:layout_constraintTop_toBottomOf="@id/btn1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+
+        <!-- USERNAME -->
+        <EditText
+            android:id="@+id/editTextUserName"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:background="@drawable/bg_input"
+            android:hint="@string/login_user"
+            android:padding="12dp"
+            android:textColor="#000"
+            android:inputType="textPersonName"
+            android:autofillHints="username"/>
+
+        <!-- EMAIL -->
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:background="@drawable/bg_input"
+            android:hint="@string/login_email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:autofillHints="emailAddress"/>
+
+        <!-- PASSWORD -->
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:background="@drawable/bg_input"
+            android:hint="@string/login_psw"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:autofillHints="password"/>
+
+        <!-- BUTTON -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="36dp"
+            android:text="@string/login_btn"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:background="@drawable/bg_button"/>
+
+        <TextView
+            android:id="@+id/textResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:visibility="gone"/>
+
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
