@@ -1,8 +1,7 @@
 package com.example.veraprimaapp;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_main);
 
         email = findViewById(R.id.editTextEmail);
         username = findViewById(R.id.editTextUserName);
@@ -31,75 +30,48 @@ public class MainActivity extends AppCompatActivity {
         btn = findViewById(R.id.btnLogin);
         result = findViewById(R.id.textResult);
 
-        btn.setOnClickListener(v -> registraUtente());
+        // 👇 UTENTE DI TEST
+        utenti.add(new Utente("test@mail.com", "test", "123456"));
+
+        btn.setOnClickListener(v -> loginUtente());
     }
 
-    @SuppressLint("ResourceAsColor")
-    private void registraUtente() {
+    private void loginUtente() {
 
         String mail = email.getText().toString().trim();
         String user = username.getText().toString().trim();
         String pass = password.getText().toString().trim();
 
-        boolean valid = true;
-
-        // reset errori
         email.setError(null);
         username.setError(null);
         password.setError(null);
 
-
-        if(mail.isEmpty()){
-            email.setError("Inserisci email");
-            valid = false;
+        if (mail.isEmpty() || user.isEmpty() || pass.isEmpty()) {
+            Toast.makeText(this, "Compila tutti i campi", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        if(user.isEmpty()){
-            username.setError("Inserisci username");
-            valid = false;
-        }
+        boolean trovato = false;
 
-        if(pass.isEmpty()){
-            password.setError("Inserisci password");
-            valid = false;
-        }
-
-        if(valid && !android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
-            email.setError("Formato email non valido");
-            valid = false;
-        }
-
-
-        if(valid && pass.length() < 6){
-            password.setError("Minimo 6 caratteri");
-            valid = false;
-        }
-
-        if(!valid) return;
-
-
-        for(Utente u : utenti){
-            if(u.getEmail().equals(mail) || u.getUsername().equals(user)){
-                result.setVisibility(View.VISIBLE);
-                result.setTextColor(getColor(R.color.red));
-                result.setText("Utente già registrato");
-                return;
+        for (Utente u : utenti) {
+            if (u.getEmail().equals(mail)
+                    && u.getUsername().equals(user)
+                    && u.getPassword().equals(pass)) {
+                trovato = true;
+                break;
             }
         }
 
+        if (trovato) {
 
-        utenti.add(new Utente(mail, user, pass));
+            Toast.makeText(this, "Login OK", Toast.LENGTH_SHORT).show();
 
-        result.setVisibility(View.VISIBLE);
-        result.setTextColor(getColor(R.color.green));
-        result.setText("Registrazione completata con successo");
+            Intent intent = new Intent(MainActivity.this, MainCalc.class);
+            startActivity(intent);
+            finish();
 
-
-        email.setText("");
-        username.setText("");
-        password.setText("");
-
-
-        Toast.makeText(this, "Utenti registrati: " + utenti.size(), Toast.LENGTH_SHORT).show();
+        } else {
+            result.setText("Credenziali errate");
+        }
     }
 }

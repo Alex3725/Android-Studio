@@ -7,4 +7,7 @@
     <string name="login_error">Non Loggato: passw o gmail errata</string>
     <string name="login_succesfull">Loggato !!! </string>
     <string name="login_title">Login</string>
+    <string name="calc_num01">Primo numero:</string>
+    <string name="calc_num02">Secondo numero:</string>
+    <string name="calc_btn">somma</string>
 </resources>
