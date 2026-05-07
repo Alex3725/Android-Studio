@@ -10,4 +10,11 @@
     <string name="calc_num01">Primo numero:</string>
     <string name="calc_num02">Secondo numero:</string>
     <string name="calc_btn">somma</string>
+
+    <string name="menu">Menu Principale</string>
+    <string name="btn_info">Informazioni</string>
+    <string name="btn_ese">Esercizi</string>
+    <string name="btn_contatti">Contatti</string>
+    <string name="text_info">Scegli una sezione</string>
+    <string name="btn_indietro">Back</string>
 </resources>

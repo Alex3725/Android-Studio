@@ -12,7 +12,7 @@ public class MainCalc extends AppCompatActivity {
 
     EditText num1, num2;
     TextView res;
-    Button btnCalc;
+    Button btnCalc, btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class MainCalc extends AppCompatActivity {
             num2 = findViewById(R.id.editTextCalcImp2);
             res = findViewById(R.id.textResultCalc);
             btnCalc = findViewById(R.id.btnCalc);
+            btnBack = findViewById(R.id.btnBack);
 
             if (num1 == null || num2 == null || res == null || btnCalc == null) {
                 Log.e("DEBUG", "UNO O PIU' VIEW È NULL (ID SBAGLIATI)");
@@ -35,6 +36,7 @@ public class MainCalc extends AppCompatActivity {
         } catch (Exception e) {
             Log.e("DEBUG", "CRASH ON CREATE", e);
         }
+
     }
 
     private void outputSomma() {

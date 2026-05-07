@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Login OK", Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(MainActivity.this, MainCalc.class);
+            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
             startActivity(intent);
             finish();
 
