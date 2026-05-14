@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Preferenze</string>
+    <string name="tit01">Preferenze Student</string>
+    <string name="tit02">Riepilogo student</string>
+    <string name="textTitMater">Materie preferite</string>
+    <string name="materiaInf">Informatica</string>
+    <string name="materiaMate">Matematica</string>
+    <string name="materiaIng">Inglese</string>
+    <string name="textTitLivello">Livello</string>
+    <string name="livelloBase">Base</string>
+    <string name="livelloIntermedio">Intermedio</string>
+    <string name="livelloAvanzato">Avanzato</string>
+    <string name="riepilo_btn">Avanzato</string>
+    <string name="text_nomeUtente">Nome Utente</string>
+    <string name="text_classe">Classe</string>
+</resources>
